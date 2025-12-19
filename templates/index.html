@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Devna J | Portfolio</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<nav>
+    <div class="container">
+        <div class="logo" style="font-weight: 700; font-size: 1.2rem;">Devna J</div>
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#education">Education</a></li>
+        </ul>
+    </div>
+</nav>
+
+<section class="hero" id="about">
+    <div class="container">
+        <div class="profile-header">
+            <img src="{{ url_for('static', filename='image/profile.jpg.jpeg') }}" class="profile-img" alt="Devna J">
+            <div>
+                <h1>Devna J</h1>
+                <p class="lead" style="font-size: 1.1rem;">{{ user.bio }}</p>
+                <div style="margin-top: 20px;">
+                    <a href="{{ user.linkedin }}" target="_blank" class="skill-tag" style="background: #007bff; color: white; text-decoration: none;">Connect on LinkedIn</a>
+                    <a href="mailto:devnajithesh249@gmail.com" style="margin-left: 15px; text-decoration: none; color: #007bff; font-weight: 600;">Contact Me</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<div class="container main-grid">
+    <section id="skills">
+        <h2>Technical & Soft Skills</h2>
+        <div class="skills-grid">
+            <span class="skill-tag">Python</span>
+            <span class="skill-tag">Django</span>
+            <span class="skill-tag">Java</span>
+            <span class="skill-tag">C++ / C</span>
+            <span class="skill-tag">SQL</span>
+            <span class="skill-tag">LaTeX</span>
+            <span class="skill-tag">Data Structures</span>
+            <span class="skill-tag soft-skill">Problem Solving</span>
+            <span class="skill-tag soft-skill">Analytical Thinking</span>
+            <span class="skill-tag soft-skill">Advanced Calculus</span>
+            <span class="skill-tag soft-skill">Statistical Analysis</span>
+            <span class="skill-tag soft-skill">Logical Reasoning</span>
+            <span class="skill-tag soft-skill">Mathematical Proof</span>
+        </div>
+    </section>
+
+    <section id="education">
+        <h2>Education</h2>
+        {% for edu in edu_list %}
+        <div class="edu-item">
+            <div style="display: flex; justify-content: space-between;">
+                <strong>{{ edu.level }}</strong>
+                <span style="color: #007bff; font-weight: 700;">{{ edu.score }}</span>
+            </div>
+            <div style="font-size: 0.9rem; color: #666;">{{ edu.school }}</div>
+        </div>
+        {% endfor %}
+    </section>
+</div>
+
+<div class="container" style="margin-top: 40px; margin-bottom: 60px;">
+    <h2>Project Spotlight</h2>
+    <div class="project-card">
+        <h3 style="color: #007bff;">{{ proj.title }}</h3>
+        <p>{{ proj.details }}</p>
+    </div>
+</div>
+
+<footer>
+    <p>&copy; 2025 Devna J | Mathematics & Computer Applications Portfolio</p>
+</footer>
+
+</body>
+</html>
